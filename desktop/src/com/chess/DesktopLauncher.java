@@ -8,6 +8,7 @@ public class DesktopLauncher {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		config.setForegroundFPS(60);
 		config.setTitle("Chess");
+		config.setWindowedMode(1000, 650);
 		new Lwjgl3Application(new Chess(), config);
 	}
 }
