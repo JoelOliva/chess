@@ -4,16 +4,16 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+
+import static com.chess.Chess.skin;
 
 public class MainMenuScreen implements Screen {
     Game game;
@@ -23,8 +23,7 @@ public class MainMenuScreen implements Screen {
 
         stage = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
-        TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("UI/pixthulhu-ui.atlas"));
-        Skin skin = new Skin(Gdx.files.internal("UI/pixthulhu-ui.json"), atlas);
+
         TextButton singlePlayer = new TextButton("Single Player", skin);
         singlePlayer.addListener(new ClickListener() {
             @Override
@@ -41,6 +40,12 @@ public class MainMenuScreen implements Screen {
         });
         TextButton online = new TextButton("Online", skin);
         TextButton help = new TextButton("Help", skin);
+        help.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                Chess.helpWindow.setVisible(true);
+            }
+        });
 
         Table root = new Table(skin);
         root.setFillParent(true);
@@ -61,6 +66,7 @@ public class MainMenuScreen implements Screen {
         root.add(buttons);
 
         stage.addActor(root);
+        stage.addActor(Chess.helpWindow);
     }
 
     @Override
