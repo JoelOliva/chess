@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 public class Chess extends Game {
 	static Skin skin;
 	static Window helpWindow;
+	static MainMenuScreen mainMenu;
 
 	@Override
 	public void create () {
@@ -40,6 +41,8 @@ public class Chess extends Game {
 		table.add(h2);
 		helpWindow.add(table);
 		helpWindow.setVisible(false);
-		setScreen(new MainMenuScreen(this));
+
+		mainMenu = new MainMenuScreen(this);
+		setScreen(mainMenu);
 	}
 }

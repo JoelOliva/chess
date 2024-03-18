@@ -54,13 +54,13 @@ public class MainMenuScreen implements Screen {
         root.add(logo);
         root.row();
         Table buttons = new Table();
-        buttons.add(singlePlayer).size(350f, singlePlayer.getHeight() * 0.85f).padBottom(10);
+        buttons.add(singlePlayer).size(350, singlePlayer.getHeight() * 0.85f).padBottom(10);
         buttons.row();
-        buttons.add(twoPlayer).size(350f, singlePlayer.getHeight() * 0.85f).padBottom(10);
+        buttons.add(twoPlayer).size(350, singlePlayer.getHeight() * 0.85f).padBottom(10);
         buttons.row();
-        buttons.add(online).size(350f, singlePlayer.getHeight() * 0.85f).padBottom(10);
+        buttons.add(online).size(350, singlePlayer.getHeight() * 0.85f).padBottom(10);
         buttons.row();
-        buttons.add(help).size(350f, singlePlayer.getHeight() * 0.85f);
+        buttons.add(help).size(350, singlePlayer.getHeight() * 0.85f);
         buttons.setX(stage.getWidth() / 2);
         buttons.setY(stage.getHeight() / 2);
         root.add(buttons);
@@ -71,7 +71,7 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void show() {
-
+        Gdx.input.setInputProcessor(stage);
     }
 
     @Override
