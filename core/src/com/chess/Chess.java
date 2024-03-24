@@ -8,6 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class Chess extends Game {
+	static final int TILESIZE = 80;
 	static Skin skin;
 	static Window helpWindow;
 	static MainMenuScreen mainMenu;

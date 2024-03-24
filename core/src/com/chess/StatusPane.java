@@ -12,9 +12,9 @@ import static com.chess.Chess.skin;
 public class StatusPane {
     private final Stage stage;
     public StatusPane(String user, boolean top) {
-        stage = new Stage(new FitViewport(640, 40));
+        stage = new Stage(new FitViewport(Gdx.graphics.getWidth(), Chess.TILESIZE / 2f));
 
-        if (top) stage.getViewport().setScreenY(Gdx.graphics.getHeight() - 40);
+        if (top) stage.getViewport().setScreenY(Gdx.graphics.getHeight() - Chess.TILESIZE / 2);
         else stage.getViewport().setScreenY(0);
         Label label = new Label(user, skin);
         label.setFontScaleX(0.5f);
@@ -24,7 +24,6 @@ public class StatusPane {
         Table root = new Table(skin);
         root.setFillParent(true);
         root.setBackground("window-round");
-        root.setHeight(20);
         root.add(label).padTop(10).padLeft(10);
         root.add(pieces).expandX();
 
