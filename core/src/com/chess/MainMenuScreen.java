@@ -17,7 +17,7 @@ import static com.chess.Chess.skin;
 
 public class MainMenuScreen implements Screen {
     Game game;
-    private final Stage stage;
+    private final Stage stage; 
     public MainMenuScreen(Game game) {
         this.game = game;
 
@@ -28,7 +28,7 @@ public class MainMenuScreen implements Screen {
         singlePlayer.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                game.setScreen(new GameScreen(game));
+            	game.setScreen(new GameScreen(game));
             }
         });
         TextButton twoPlayer = new TextButton("2 Player", skin);
@@ -36,6 +36,7 @@ public class MainMenuScreen implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 game.setScreen(new GameScreen(game));
+                
             }
         });
         TextButton online = new TextButton("Online", skin);
@@ -69,7 +70,7 @@ public class MainMenuScreen implements Screen {
         stage.addActor(Chess.helpWindow);
     }
 
-    @Override
+	@Override
     public void show() {
         Gdx.input.setInputProcessor(stage);
     }
@@ -77,7 +78,7 @@ public class MainMenuScreen implements Screen {
     @Override
     public void render(float v) {
         ScreenUtils.clear(0, 0, 0, 1);
-        stage.draw();
+        stage.draw(); 
     }
 
     @Override
